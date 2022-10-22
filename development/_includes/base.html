@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if description %}{{ description }}{% else %}Eduardo's online journal, where I share articles about software engineering.{% endif %}">
+    <title>{{ title }}</title>
+
+    <style>
+    {% include "development/public/css/base.css" %}
+
+    {% if css %}
+        {% for style in css %}
+            {% include "development/public/css/" + style %}
+        {% endfor %}
+    {% endif %} 
+    </style>
+</head>
+
+<body>
+    {% block content %}
+        {{ content | safe }}
+    {% endblock content %}
+</body>
+</html>

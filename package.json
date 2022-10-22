@@ -1,0 +1,19 @@
+{
+  "name": "eduardo-uribe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buid": "npx @11ty/eleventy eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "quiet": "npx @11ty/eleventy eleventy --quiet"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0"
+  }
+}

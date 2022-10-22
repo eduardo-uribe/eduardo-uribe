@@ -1,0 +1,53 @@
+---
+layout: base.html
+title: Journal
+css:
+    - navigation.css
+    - blogpage.css
+pagination:
+    data: collections.entries
+    size: 3
+    reverse: true
+    alias: entries
+---
+
+{% include "components/navigation.html" %}
+
+<main class="blog-page">
+    <ul class="recent-articles">
+
+        {% for entry in entries %}
+        <li>
+            <a href="{{ entry.url | url }}" class="recent-articles-link">{{entry.data.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+<footer class="footer">
+    <nav class="pagination-navigation" aria-labelledby="my-pagination">
+        <ol class="pagination-navigation-list">
+            <!-- Page Number -->
+            <li>
+                <p class="pagination-navigation-list-pagenumber"><strong>Page {{ pagination.pageNumber + 1 }}</strong> of {{ pagination.pages.length }}</p>
+            </li>
+            
+            <!-- Previous Page Link -->
+            <li class="pagination-navigation-list-previous">
+                {% if pagination.href.previous %}
+                    <a href="{{ pagination.href.previous }}">Previous</a>
+                {% else %}
+                    Previous
+                {% endif %}
+            </li>
+
+            <!-- Next Page Link -->
+            <li class="pagination-navigation-list-next">
+                {% if pagination.href.next %}
+                    <a href="{{ pagination.href.next }}">Next</a>
+                {% else %}Next{% endif %}
+            </li>
+        </ol>
+
+    </nav>
+</footer>

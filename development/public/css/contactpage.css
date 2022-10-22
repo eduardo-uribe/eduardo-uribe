@@ -1,0 +1,11 @@
+.contact-page {
+    /* border: solid 3px black; @TODO: */
+    padding: 128px 32px 0;
+    flex-grow: 1;
+}
+
+.contact-page-paragraph {
+    line-height: 1.5;
+    margin: 0 auto 16px;
+    max-width: 540px;
+}

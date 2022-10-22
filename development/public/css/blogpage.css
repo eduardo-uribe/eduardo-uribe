@@ -1,0 +1,55 @@
+.footer {
+    padding: 0 32px 32px;
+}
+
+.blog-page {
+    /* border: solid 3px black; @TODO: */
+    padding: 128px 32px 0;
+    flex-grow: 1;
+}
+
+.recent-articles {
+    /* border: solid 3px black; */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.recent-articles-link {
+    color: black;
+    display: block;
+    line-height: 1.5;
+    margin: 0 auto 32px;
+    max-width: 540px;
+}
+
+.pagination-navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+.pagination-navigation-list {
+    border: solid 2px black;
+    border-radius: 2px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 350px;
+}
+
+.pagination-navigation-list-pagelink {
+    display: block;
+    padding: 16px;
+}
+
+.pagination-navigation-list-pagenumber {
+    padding: 0 16px;
+}
+
+.pagination-navigation-list-previous, .pagination-navigation-list-next {
+    border-left: solid 3px black;
+    display: block;
+    padding: 16px;
+}

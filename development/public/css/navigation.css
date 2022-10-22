@@ -1,0 +1,33 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    /* border: solid 3px black; @TODO: */
+    padding: 32px 32px 0;
+}
+
+.logo {
+    /* border: solid 3px black; @TODO: */
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.links {
+    list-style: none;
+    box-sizing: border-box;
+    /* border: solid 3px black; @TODO: */
+    margin: 0;
+    padding: 0;
+}
+
+.links-link {
+    /* border: solid 3px black; @TODO: */
+    color: black;
+    display: block;
+    padding: 8px;
+    text-decoration: underline dotted;
+}
+
+.active-link {
+    font-weight: 500;
+}
