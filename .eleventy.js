@@ -1,5 +1,11 @@
 const syntaxHighlight = require ("@11ty/eleventy-plugin-syntaxhighlight");
 
+/**
+ * Intellisense/auto-completion for your Eleventy configuration file.
+ * @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig 
+ * @returns 
+ * @see {@link https://github.com/11ty/eleventy/discussions/2089}
+ */
 module.exports = function(eleventyConfig) {
 
     // Syntax highlighting plugin
