@@ -1,2 +1,2 @@
 # eduardouribe.com
-Educational content marketing.
+Technical journal.
