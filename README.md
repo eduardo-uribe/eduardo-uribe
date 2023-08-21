@@ -1,2 +1,2 @@
 # eduardouribe.com
-Technical journal.
+JavaScript Engineer technical journal.
