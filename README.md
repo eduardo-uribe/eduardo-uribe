@@ -1,2 +1,2 @@
 # eduardouribe.com
-Digital journal.
+Technical communication journal.
