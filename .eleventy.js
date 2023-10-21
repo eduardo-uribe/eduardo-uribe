@@ -1,95 +1,89 @@
+// Eleventy Syntax Highlighting Plugin
 const syntaxHighlight = require ("@11ty/eleventy-plugin-syntaxhighlight");
 
-/**
- * Intellisense/auto-completion for your Eleventy configuration file.
- * @param {import("@11ty/eleventy/src/UserConfig")} eleventyConfig 
- * @returns 
- * @see {@link https://github.com/11ty/eleventy/discussions/2089}
- */
+
 module.exports = function(eleventyConfig) {
 
-    // Syntax highlighting plugin
-    eleventyConfig.addPlugin(syntaxHighlight, {
+    // Syntax Highlighting Plugin
+    // eleventyConfig.addPlugin(syntaxHighlight, {
 
-        // init callback lets you customize Prism
-        init: function ({ Prism }) {
-            Prism.languages.treeview = {
-                "treeview-part": {
-                    pattern: /(^|\n).+/,
-                    inside: {
-                        "entry-line": [
-                            {
-                                pattern: /\|-- |├── /,
-                                alias: "line-h"
-                            },
-                            {
-                                pattern: /\|   |│   /,
-                                alias: "line-v"
-                            },
-                            {
-                                pattern: /`-- |└── /,
-                                alias: "line-v-last"
-                            },
-                            {
-                                pattern: / {4}/,
-                                alias: "line-v-gap"
-                            }
-                        ],
-                        "entry-name": {
-                            pattern: /.*\S.*/,
-                            inside: {
-                                // symlink
-                                "operator": / -> /,
-                            }
-                        }
-                    }
-                }
-            };
+    //     // init callback lets you customize Prism
+    //     init: function ({ Prism }) {
+    //         Prism.languages.treeview = {
+    //             "treeview-part": {
+    //                 pattern: /(^|\n).+/,
+    //                 inside: {
+    //                     "entry-line": [
+    //                         {
+    //                             pattern: /\|-- |├── /,
+    //                             alias: "line-h"
+    //                         },
+    //                         {
+    //                             pattern: /\|   |│   /,
+    //                             alias: "line-v"
+    //                         },
+    //                         {
+    //                             pattern: /`-- |└── /,
+    //                             alias: "line-v-last"
+    //                         },
+    //                         {
+    //                             pattern: / {4}/,
+    //                             alias: "line-v-gap"
+    //                         }
+    //                     ],
+    //                     "entry-name": {
+    //                         pattern: /.*\S.*/,
+    //                         inside: {
+    //                             // symlink
+    //                             "operator": / -> /,
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         };
 
-            Prism.hooks.add('wrap', function (env) {
-                if (env.language === 'treeview') {
-                    // Remove line breaks
-                    if (env.type === 'treeview-part') {
-                        env.content = env.content.replace(/\n/g, '') + '<br />';
-                    }
-                    if (env.type === 'entry-name') {
-                        if (/(^|[^\\])\/\s*$/.test(env.content)) {
-                            env.content = env.content.slice(0, -1);
-                            // This is a folder
-                            env.classes.push('dir');
-                        } else {
+    //         Prism.hooks.add('wrap', function (env) {
+    //             if (env.language === 'treeview') {
+    //                 // Remove line breaks
+    //                 if (env.type === 'treeview-part') {
+    //                     env.content = env.content.replace(/\n/g, '') + '<br />';
+    //                 }
+    //                 if (env.type === 'entry-name') {
+    //                     if (/(^|[^\\])\/\s*$/.test(env.content)) {
+    //                         env.content = env.content.slice(0, -1);
+    //                         // This is a folder
+    //                         env.classes.push('dir');
+    //                     } else {
 
-                            if (/(^|[^\\])[=*|]\s*$/.test(env.content)) {
-                                env.content = env.content.slice(0, -1);
-                            }
+    //                         if (/(^|[^\\])[=*|]\s*$/.test(env.content)) {
+    //                             env.content = env.content.slice(0, -1);
+    //                         }
 
-                            var parts = env.content.toLowerCase().split('.');
-                            while (parts.length > 1) {
-                                parts.shift();
-                                // Ex. 'foo.min.js' would become '<span class="token keyword ext-min-js ext-js">foo.min.js</span>'
-                                env.classes.push('ext-' + parts.join('-'));
-                            }
-                        }
+    //                         var parts = env.content.toLowerCase().split('.');
+    //                         while (parts.length > 1) {
+    //                             parts.shift();
+    //                             // Ex. 'foo.min.js' would become '<span class="token keyword ext-min-js ext-js">foo.min.js</span>'
+    //                             env.classes.push('ext-' + parts.join('-'));
+    //                         }
+    //                     }
 
-                        if (env.content.charAt(0) === '.') {
-                            env.classes.push('dotfile');
-                        }
-                    }
-                }
-            });
-        }
-    });
+    //                     if (env.content.charAt(0) === '.') {
+    //                         env.classes.push('dotfile');
+    //                     }
+    //                 }
+    //             }
+    //         });
+    //     }
+    // });
     
-    // Copy `public` directory into output directory - `_website/public`.
-    eleventyConfig.addPassthroughCopy("development/public");
+    // Copy "/public/" Directory Into Output Directory "/_site/public/"
+    // eleventyConfig.addPassthroughCopy("development/public");
 
-    // Assigned an input directory and renamed output directory
     return {
         markdownTemplateEngine: "njk",
         htmlTemplateEngine: "njk",
-        "dir": {
-            "input": "development",
-            "output": "_website"
-        }
+        // "dir": {
+        //     "input": "development"
+        // }
     };
 };

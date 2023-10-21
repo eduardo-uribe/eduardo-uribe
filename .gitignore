@@ -1,7 +1,7 @@
-# output directory
-_website
+# Default output Directory
+_site
 
-# dependencies installed by npm
+# NPM node modules
 node_modules
 
 # package-lock.json
