@@ -1,3 +1,4 @@
 {
-    "tags": "entry"
+  "tags": "entry",
+  "layout": "base.html"
 }
