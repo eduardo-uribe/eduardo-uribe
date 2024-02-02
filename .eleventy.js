@@ -1,5 +1,6 @@
 // Eleventy Syntax Highlighting Plugin
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const squash = require('./utilities/squash.js');
 
 module.exports = function (eleventyConfig) {
   // Syntax Highlighting Plugin
@@ -70,6 +71,10 @@ module.exports = function (eleventyConfig) {
         }
       });
     },
+  });
+
+  eleventyConfig.addFilter('squash', function (string) {
+    return squash(string);
   });
 
   return {
