@@ -68,6 +68,150 @@
 
       <ul>
         <li>
+          <static-search data-resource-url="/search-index.json">
+            <template data-search-proxy>
+              <style>
+                search[data-search-proxy] {
+                  box-sizing: border-box;
+                  height: 50px;
+                  margin-bottom: 16px;
+                }
+
+                input[data-search-proxy-input] {
+                  box-sizing: border-box;
+                  font-size: 16px;
+                  height: 100%;
+                  width: 300px;
+                  text-indent: 10px;
+                }
+
+                button[data-search-proxy-button] {
+                  border: none;
+                  background: black;
+                  box-sizing: border-box;
+                  border-radius: 2px;
+                  color: #fafafa;
+                  font-size: 16px;
+                  height: 100%;
+                  padding: 8px 32px;
+                }
+              </style>
+              <search data-search-proxy>
+                <input
+                  data-search-proxy-input
+                  type="text"
+                  placeholder="Search the journal"
+                />
+                <button data-search-proxy-button type="button">Search</button>
+              </search>
+            </template>
+            <template data-dialog>
+              <style>
+                dialog {
+                  border-radius: 6px;
+                  border: solid 1px #eee;
+                  margin-top: 10%;
+                  width: 55ch;
+                }
+
+                dialog::backdrop {
+                  backdrop-filter: blur(1px);
+                }
+
+                ul {
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: 0;
+                  text-align: start;
+                }
+
+                ul ul {
+                  border: solid 2px #eee;
+                  border-radius: 2px;
+                  line-height: 1.5;
+                  max-height: 350px;
+                  overflow: scroll;
+                  padding: 0.5rem;
+                }
+
+                #search-provided-by-message {
+                  margin: 0.5rem 0 0;
+                  text-align: end;
+                }
+
+                section {
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 16px;
+                }
+
+                section h3 {
+                  font-size: 16px;
+                  font-weight: 600;
+                  margin: 0;
+                }
+
+                button[data-close-modal] {
+                  border: none;
+                  background: none;
+                  cursor: pointer;
+                  font-size: 16px;
+                  text-decoration: underline;
+                }
+
+                form {
+                  display: flex;
+                  justify-content: space-between;
+                  height: 50px;
+                }
+
+                form input {
+                  font-size: 16px;
+                  text-indent: 8px;
+                  width: 70%;
+                }
+
+                form button {
+                  border: none;
+                  border-radius: 2px;
+                  background-color: black;
+                  color: #fafafa;
+                  font-size: 16px;
+                  width: 28%;
+                }
+
+                li {
+                  margin-bottom: 12px;
+                }
+
+                a {
+                  color: black;
+                  font-weight: 400;
+                }
+              </style>
+              <dialog>
+                <search data-search>
+                  <section>
+                    <h3>Search the journal</h3>
+                    <button data-close-modal type="button">Close</button>
+                  </section>
+                  <form>
+                    <input
+                      autofocus
+                      type="search"
+                      placeholder="Search the journal"
+                      required
+                      aria-label="Search through this websites content."
+                      data-search-input
+                    />
+                    <button data-submit-search>Search</button>
+                  </form>
+                </search>
+              </dialog>
+            </template>
+          </static-search>
+        </li>
+        <li>
           <a href="/journal/">Journal</a>
         </li>
         <li>
@@ -77,5 +221,6 @@
         </li>
       </ul>
     </main>
+    <script src="/static-search.js"></script>
   </body>
 </html>

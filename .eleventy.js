@@ -77,6 +77,8 @@ module.exports = function (eleventyConfig) {
     return squash(string);
   });
 
+  eleventyConfig.addPassthroughCopy('static-search.js');
+
   return {
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
