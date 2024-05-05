@@ -161,6 +161,35 @@ class StaticSearch extends HTMLElement {
       'data-search-results',
       JSON.stringify(matches)
     );
+
+    try {
+      // submit search query analytics
+      let response = await fetch(
+        'http://localhost:3000/api/v1/search-query/web1iw76zzbbpzzb2799kldj5hxqpl',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            search_query: query,
+            search_query_date: new Date(),
+          }),
+          // mode: 'no-cors',
+        }
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   openDialog = (event) => {
