@@ -165,7 +165,7 @@ class StaticSearch extends HTMLElement {
     try {
       // submit search query analytics
       let response = await fetch(
-        'http://localhost:3000/api/v1/search-query/web1iw76zzbbpzzb2799kldj5hxqpl',
+        'http://localhost:3000/api/v1/search-query/ksq5yrf0n4laszgv9rekt2yd6eqqrg',
         {
           method: 'POST',
           headers: {
