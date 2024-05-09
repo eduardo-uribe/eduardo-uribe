@@ -176,7 +176,6 @@ class StaticSearch extends HTMLElement {
             search_query: query,
             search_query_date: new Date(),
           }),
-          // mode: 'no-cors',
         }
       )
         .then((response) => {
