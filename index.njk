@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eduardo Javier Uribe Cruz</title>
+    <title>Eduardo</title>
 
     <style>
       html,
@@ -12,15 +12,12 @@
           Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
           sans-serif;
         font-size: 16px;
-        height: 100vw;
         margin: 0;
         width: 100vw;
       }
 
       main {
         padding: 1rem;
-        display: flex;
-        justify-content: space-between;
       }
 
       h1 {
@@ -34,39 +31,74 @@
         margin: 0;
       }
 
-      p span {
-        /* font-style: italic; */
-        font-weight: 600;
-      }
-
       ul {
-        list-style: none;
         margin: 0;
         padding: 0;
-        text-align: right;
       }
 
       ul li a {
         color: black;
       }
 
-      ul li a span {
-        /* font-style: italic; */
+      .main-content {
+        list-style: none;
+        max-width: 55ch;
+        margin: 0 auto;
+      }
+
+      ul > li > ul > p {
         font-weight: 600;
+      }
+
+      ul > li > ul {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      ul > li > ul > li > a {
+        display: block;
+        line-height: 1.5;
+        /* margin-bottom: 0.25rem; */
       }
     </style>
   </head>
   <body>
     <main>
-      <span>
-        <h1>Eduardo Uribe Cruz</h1>
-        <p>
-          Software Engineer
-          <span>Specializing in Full-Stack JavaScript Web Applications</span>
-        </p>
-      </span>
+      <p>Eduardo</p>
+      <ul class="main-content">
+        <li>
+          <ul>
+            <p>Products</p>
+            <li>
+              <a href="https://websitesearchanalytics.com" target="_blank">Search analytics</a>
+            </li>
+            <li><a href="https://nextjsengineer.com" target="_blank">Next.js job board</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <p>Ebooks</p>
+            <li><a href="/clerk-with-stripe">Clerk with Stripe</a></li>
+            <li>
+              <a href="https://eleventy.gumroad.com/l/reetue"
+                >Nunjucks in Eleventy</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <p>Publications</p>
+            {% for entry in collections.entry %}
+            <li>
+              <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
 
-      <ul>
+      <!-- <ul>
         <li>
           <static-search data-resource-url="/search-index.json">
             <template data-search-proxy>
@@ -214,13 +246,8 @@
         <li>
           <a href="/journal/">Journal</a>
         </li>
-        <li>
-          <a href="https://eleventy.gumroad.com/l/reetue"
-            >eBook <span>Nunjucks in Eleventy</span></a
-          >
-        </li>
-      </ul>
+      </ul> -->
     </main>
-    <script src="/static-search.js"></script>
+    <!-- <script src="/static-search.js"></script> -->
   </body>
 </html>
