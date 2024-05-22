@@ -36,6 +36,10 @@
         padding: 0;
       }
 
+      li {
+        margin-bottom: 0.15rem;
+      }
+
       ul li a {
         color: black;
       }
@@ -60,6 +64,11 @@
         line-height: 1.5;
         /* margin-bottom: 0.25rem; */
       }
+
+      .description {
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
   <body>
@@ -70,9 +79,13 @@
           <ul>
             <p>Products</p>
             <li>
-              <a href="https://websitesearchanalytics.com" target="_blank">Search analytics</a>
+              <a href="https://websitesearchanalytics.com" target="_blank">Search Analytics: </a>
+              <p><i>Search analytics for your website search.</i></p>
             </li>
-            <li><a href="https://nextjsengineer.com" target="_blank">Next.js job board</a></li>
+            <li>
+              <a href="https://nextjsengineer.com" target="_blank">Next.js Job Board:</a>
+              <p><i>Join an engineering team building their product with Next.js</i></p>
+            </li>
           </ul>
         </li>
         <li>
@@ -89,6 +102,7 @@
         <li>
           <ul>
             <p>Publications</p>
+            <p class="description"><i>Technical insights building saas products in Next.js</i></p>
             {% for entry in collections.entry %}
             <li>
               <a href="{{ entry.url }}">{{ entry.data.title }}</a>
@@ -247,9 +261,7 @@
           <a href="/journal/">Journal</a>
         </li>
       </ul> -->
-      <div id="commento"></div>
     </main>
     <!-- <script src="/static-search.js"></script> -->
-    <script defer src="https://cdn.commento.io/js/commento.js"></script>
   </body>
 </html>
